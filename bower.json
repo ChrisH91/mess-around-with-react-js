@@ -1,0 +1,24 @@
+{
+  "name": "mess-around-with-react-js",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Chris Howard <Chris.Howard@loopup.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ChrisH91/mess-around-with-react-js",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.14.7"
+  }
+}
