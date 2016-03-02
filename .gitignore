@@ -1,4 +1,7 @@
 # Packages folders
 
-bower_components
-node_modules
+bower_components/
+node_modules/
+
+# Build folder, where compiled output lives
+public/
