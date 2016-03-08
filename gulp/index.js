@@ -17,7 +17,7 @@ module.exports = function (tasks) {
     // and tasks parameters rather than just a function.
     //
     // Some tasks will also be groups of tasks, in which case the task file
-    // will eturn an array.
+    // will return an array.
 
     if (typeof task === 'function') {
       gulp.task(name, require('./tasks/' + name));
