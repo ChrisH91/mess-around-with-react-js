@@ -1,10 +1,20 @@
+/**
+ * gulp/tasks/browserify.js
+ *
+ * Runs the browserify tasks on our Javascript and JSX files and sets up
+ * watchify to watch the source directories an rerun the task on any changes
+ */
+
 var gulp       = require('gulp');
+var gutil      = require('gulp-util');
 var browserify = require('browserify');
 var watchify   = require('watchify');
 var reactify   = require('reactify');
 var source     = require('vinyl-source-stream');
 
 module.exports = function () {
+  var mostRecentUpdate = 0;
+
   var bundler = browserify({
     entries:      ['./assets/js/app.js'],
     transform:    [reactify],
@@ -14,8 +24,31 @@ module.exports = function () {
     packageCache: {}
   });
 
-  bundler
-    .bundle()
-    .pipe(source('app.js'))
-    .pipe(gulp.dest('./public/js/'));
+  var watcher = watchify(bundler);
+
+  var bundle = function () {
+    var now = Date.now();
+
+    // The file system watcher triggers an event twice on any changes to the
+    // file. We'll check how recent the last browserification to decide wheter
+    // to actually run the task
+
+    if ((now - mostRecentUpdate) < 250) {
+      return;
+    }
+
+    gutil.log('Browserifying...');
+
+    watcher
+      .bundle()
+      .pipe(source('app.js'))
+      .pipe(gulp.dest('./public/js/'));
+
+    mostRecentUpdate = now;
+  }
+
+  watcher.on('update', bundle);
+  bundle();
+
+  return watcher;
 };
