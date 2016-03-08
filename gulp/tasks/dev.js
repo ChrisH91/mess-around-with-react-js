@@ -1,1 +1,6 @@
-module.exports = ['copy', 'browserify', 'watch'];
+module.exports = [
+  'copy-lib-css',
+  'copy',
+  'browserify',
+  'watch'
+];
