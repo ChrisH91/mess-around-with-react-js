@@ -1,3 +1,9 @@
+/**
+ * gulp/tasks/copy-lib-css.js
+ *
+ * Copy vendor css files into the public output directory
+ */
+
 var gulp = require('gulp');
 
 module.exports = function () {

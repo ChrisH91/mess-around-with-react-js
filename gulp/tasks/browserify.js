@@ -1,3 +1,10 @@
+/**
+ * gulp/tasks/browserify.js
+ *
+ * Runs the browserify tasks on our Javascript and JSX files and sets up
+ * watchify to watch the source directories an rerun the task on any changes
+ */
+
 var gulp       = require('gulp');
 var gutil      = require('gulp-util');
 var browserify = require('browserify');
