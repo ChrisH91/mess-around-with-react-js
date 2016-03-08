@@ -1,4 +1,6 @@
 var gulp = require('./gulp')([
   'browserify',
-  'copy'
+  'copy',
+  'watch',
+  'dev'
 ]);
