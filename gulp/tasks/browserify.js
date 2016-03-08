@@ -29,6 +29,10 @@ module.exports = function () {
   var bundle = function () {
     var now = Date.now();
 
+    // The file system watcher triggers an event twice on any changes to the
+    // file. We'll check how recent the last browserification to decide wheter
+    // to actually run the task
+
     if ((now - mostRecentUpdate) < 250) {
       return;
     }
