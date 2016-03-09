@@ -7,6 +7,7 @@
 module.exports = [
   'copy-lib-css',
   'copy',
+  'sass',
   'browserify',
   'watch'
 ];

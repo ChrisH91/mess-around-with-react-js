@@ -8,6 +8,7 @@
  */
 
 var gulp = require('./gulp')([
+  'sass',
   'browserify',
   'copy-lib-css',
   'copy',
