@@ -1,5 +1,5 @@
 /**
- * gulp/tasks/watch.
+ * gulp/tasks/watch.js
  *
  * Watches static directories and copies across and modifications or new files
  * as well as watching and compiling scss on changes.
